@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  # has_one_attached :image
+  has_many :books, dependent: :destroy
   
   #下記コードは見直しの必要性あり
   has_one_attached :profile_image
