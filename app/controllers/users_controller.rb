@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  
   def index
-    @users = User.page(params[:page]).per(3).reverse_order
+
   end
 
   def show
@@ -10,5 +11,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
+  
+  private
+  def user_params
+    params.require(:current_user).permit(:name, :introduction, :profile_image)  end
+  
 end

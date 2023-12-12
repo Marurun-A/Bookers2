@@ -6,7 +6,6 @@ class User < ApplicationRecord
          
   has_many :books, dependent: :destroy
   
-  #下記コードは見直しの必要性あり
   has_one_attached :profile_image
   
   def get_profile_image
