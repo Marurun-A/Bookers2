@@ -5,7 +5,6 @@
       <table class='table'>
         <tr>
           <th>
-            <!--<%= @user.profile_image %>-->
             <% if @user.profile_image.attached? %>
               <%= image_tag @user.profile_image, size: "100x100" %>
             <% else %>
