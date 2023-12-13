@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def index
-
+   @user = User.all
   end
 
   def show
@@ -16,6 +16,8 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:current_user).permit(:name, :introduction, :profile_image)  end
+    params.require(:current_user).permit(:name, :introduction, :profile_image)  
+  end
   
 end
+
