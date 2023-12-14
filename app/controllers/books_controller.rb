@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   end
 
   def create
+
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
@@ -24,21 +25,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to books_path
-    end
-
     @book = Book.find(params[:id])
   end
 
   def update
-
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to books_path
-    end
-
     @book = Book.find(params[:id])
       if @book.update(book_params)
         flash[:notice] = "You have updated book successfully."
@@ -51,7 +41,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/books'
+    redirect_to books_path
   end
 
 
