@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
       user_path(resource)
   end
 
+  def after_sign_out_path_for(resource_or_scorpe)
+    root_path
+  end
+
   protected
 
   def configure_permitted_parameters
